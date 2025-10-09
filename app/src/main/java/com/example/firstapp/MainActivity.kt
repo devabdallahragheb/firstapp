@@ -1,9 +1,9 @@
 package com.example.firstapp
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,23 +16,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.firstapp.lec4.RegistrationScreen
+import com.example.firstapp.lec7.FirstActivity
 import com.example.firstapp.ui.theme.FirstappTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            FirstappTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-                RegistrationScreen()
-            }
-        }
+        
+        // Launch FirstActivity from lec8
+        val intent = Intent(this, FirstActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
 
